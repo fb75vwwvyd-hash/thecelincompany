@@ -1,28 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Celin Company</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Celin Company</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #050505;
+      color: #f5f1e8;
+      font-family: Georgia, serif;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      background:
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.9)),
+        radial-gradient(circle at center, #2a2116, #050505 70%);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      background: rgba(0,0,0,.75);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+
+    nav a {
+      color: #f5f1e8;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      letter-spacing: 3px;
+      font-size: 14px;
+      color: #c9a45c;
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 110px);
+      line-height: .9;
+      letter-spacing: -3px;
+      max-width: 1000px;
+    }
+
+    .tagline {
+      margin-top: 30px;
+      max-width: 650px;
+      font-size: 22px;
+      color: #cfc7b8;
+    }
+
+    section {
+      padding: 90px 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin-bottom: 25px;
+      color: #c9a45c;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ddd5c7;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      border: 1px solid rgba(201,164,92,.35);
+      padding: 30px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .card h3 {
+      color: #f5f1e8;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .project-title {
+      font-size: 32px;
+      color: #fff;
+    }
+
+    footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: #aaa;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 24px;
+      border: 1px solid #c9a45c;
+      color: #c9a45c;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 100;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 15px 20px;
+        font-size: 12px;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 12px;
+      }
+
+      header, section {
+        padding: 80px 25px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="grain"></div>
+
+  <nav>
+    <div class="logo">THE CELIN COMPANY</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
     <h1>THE CELIN COMPANY</h1>
-
-    <p>
-        Independent film production company focused on cinematic storytelling,
-        innovative visual design, and the development of original film and
-        television projects.
+    <p class="tagline">
+      An independent film production company dedicated to cinematic storytelling,
+      emotional truth, and original film and television projects.
     </p>
+    <a class="button" href="#projects">View Projects</a>
+  </header>
 
-    <h2>Current Projects</h2>
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      The Celin Company is a Los Angeles-based independent production company focused
+      on developing and producing cinematic stories for film, television, and visual media.
+    </p>
+    <p>
+      Our work is built around atmosphere, character, memory, grief, beauty, and the
+      emotional power of images.
+    </p>
+  </section>
 
-    <ul>
-        <li>The Last Appointment</li>
-        <li>Future Original Productions</li>
-    </ul>
+  <section id="projects">
+    <h2>Projects</h2>
 
+    <div class="grid">
+      <div class="card">
+        <h3 class="project-title">The Last Appointment</h3>
+        <p>
+          A psychological drama about grief, memory, and the impossible presence of love
+          after death.
+        </p>
+        <p>
+          Currently in development.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Original Film Slate</h3>
+        <p>
+          The Celin Company is developing original narrative films, short films,
+          and cinematic visual projects.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Visual Storytelling</h3>
+        <p>
+          Our approach combines cinematography, controlled atmosphere, performance,
+          and emotionally precise visual design.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="founder">
+    <h2>Founder</h2>
+    <p>
+      Founded by Guy Stephens Celin, a filmmaker and cinematographer based in Los Angeles.
+    </p>
+    <p>
+      His work focuses on cinematic atmosphere, intimate character studies, and visually
+      driven storytelling.
+    </p>
+  </section>
+
+  <section id="contact">
     <h2>Contact</h2>
-
     <p>
-        Los Angeles, California
+      For production inquiries, collaborations, and project development:
     </p>
+    <p>
+      Los Angeles, California
+    </p>
+  </section>
+
+  <footer>
+    © 2026 The Celin Company. All rights reserved.
+  </footer>
 </body>
 </html>
