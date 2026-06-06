@@ -4,126 +4,351 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Celin Company</title>
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      background:#000;
-      color:#fff;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    header{
-      width:100%;
-      padding:35px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      header{
-    border-bottom:1px solid rgba(255,255,255,.15);
+    html {
+      scroll-behavior: smooth;
     }
 
-    .brand{
-      font-size:22px;
-      letter-spacing:3px;
-      font-weight:500;
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
-    nav a{
-      margin-left:28px;
-      text-decoration:none;
-      color:#fff;
-      font-size:15px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    nav a:hover{
-      color:#777;
+    header {
+      background: #000;
+      padding: 55px 28px 45px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      position: relative;
     }
 
-    .hero{
-      min-height:75vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:60px 25px;
+    .brand {
+      font-size: 38px;
+      line-height: 1.35;
+      letter-spacing: 5px;
+      font-weight: 300;
+      text-transform: uppercase;
+      max-width: 420px;
+      margin: 0 auto 35px;
     }
 
-    .logo{
-      max-width:420px;
-      width:80%;
-      margin-bottom:45px;
+    .line {
+      width: 90%;
+      height: 2px;
+      background: #fff;
+      margin: 0 auto 28px;
     }
 
-    h1{
-      font-size:46px;
-      letter-spacing:4px;
-      font-weight:500;
-      margin-bottom:20px;
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      font-size: 30px;
+      font-weight: 700;
     }
 
-    .tagline{
-      font-size:24px;
-      margin-bottom:35px;
+    .menu-btn {
+      position: absolute;
+      right: 34px;
+      top: 72px;
+      width: 46px;
+      height: 35px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 20;
     }
 
-    .coming{
-      font-size:18px;
-      margin-bottom:35px;
+    .menu-btn span {
+      display: block;
+      height: 4px;
+      background: #fff;
+      margin: 8px 0;
+      border-radius: 3px;
     }
 
-    .button{
-      display:inline-block;
-      padding:14px 35px;
-      border:1px solid #111;
-      color:#111;
-      text-decoration:none;
-      font-size:15px;
-      letter-spacing:1px;
+    .menu {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 130px;
     }
 
-    .button:hover{
-      background:#fff;
-      color:#000;
+    .menu.active {
+      display: flex;
     }
 
-    .socials{
-      margin-top:45px;
+    .close-btn {
+      position: absolute;
+      right: 38px;
+      top: 60px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 64px;
+      font-weight: 200;
+      cursor: pointer;
     }
 
-    .socials a{
-      margin:0 12px;
-      text-decoration:none;
-      color:#111;
-      font-size:14px;
-      letter-spacing:1px;
+    .menu a {
+      font-size: 42px;
+      margin: 28px 0;
+      color: #fff;
+      font-weight: 300;
     }
 
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      font-size:14px;
-      color:#555;
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 28px;
+      background: #000;
     }
 
-    @media(max-width:700px){
-      header{
-        flex-direction:column;
-        gap:20px;
+    .hero-logo {
+      width: 180px;
+      opacity: .75;
+      margin-bottom: 110px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.3;
+      letter-spacing: 8px;
+      font-weight: 300;
+      text-transform: uppercase;
+      margin-bottom: 42px;
+    }
+
+    .tagline {
+      font-size: 34px;
+      line-height: 1.4;
+      margin-bottom: 55px;
+      font-weight: 300;
+    }
+
+    .hero-text {
+      font-size: 25px;
+      line-height: 1.7;
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .button {
+      display: inline-block;
+      font-size: 30px;
+      padding: 22px 55px;
+      border: 2px solid #fff;
+      margin-top: 15px;
+      transition: .3s;
+    }
+
+    .button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    section {
+      padding: 90px 28px;
+      text-align: center;
+    }
+
+    .dark {
+      background: #000;
+      color: #fff;
+    }
+
+    .light {
+      background: #eee;
+      color: #000;
+    }
+
+    h2 {
+      font-size: 50px;
+      line-height: 1.3;
+      letter-spacing: 4px;
+      font-weight: 300;
+      text-transform: uppercase;
+      margin-bottom: 55px;
+    }
+
+    .section-text {
+      max-width: 760px;
+      margin: 0 auto 55px;
+      font-size: 30px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .faq-wrap {
+      max-width: 850px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .faq-item {
+      margin-bottom: 70px;
+    }
+
+    .faq-item h3 {
+      font-size: 39px;
+      line-height: 1.35;
+      font-weight: 300;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .faq-item p {
+      font-size: 30px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .jobs-intro {
+      max-width: 850px;
+      margin: auto;
+      font-size: 30px;
+      line-height: 1.8;
+    }
+
+    .job-list {
+      margin-top: 80px;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .job-card {
+      border-top: 1px solid rgba(255,255,255,.3);
+      padding: 50px 0;
+      text-align: left;
+    }
+
+    .job-card h3 {
+      font-size: 42px;
+      font-weight: 300;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .job-card p {
+      font-size: 25px;
+      line-height: 1.6;
+    }
+
+    .apply {
+      background: #1a1a1a;
+      padding: 90px 28px;
+      text-align: center;
+    }
+
+    form {
+      max-width: 850px;
+      margin: 50px auto 0;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-size: 32px;
+      margin: 38px 0 16px;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #fff;
+      color: #fff;
+      font-size: 28px;
+      padding: 18px 0;
+      outline: none;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .submit {
+      width: 100%;
+      background: #fff;
+      color: #000;
+      border: none;
+      font-size: 34px;
+      letter-spacing: 2px;
+      padding: 28px;
+      margin-top: 50px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 65px 28px;
+    }
+
+    footer .socials {
+      margin-bottom: 42px;
+    }
+
+    footer p {
+      font-size: 26px;
+      font-weight: 300;
+    }
+
+    @media (max-width: 700px) {
+      .brand {
+        font-size: 34px;
       }
 
-      nav a{
-        margin:0 8px;
-        font-size:14px;
+      h1 {
+        font-size: 44px;
       }
 
-      h1{
-        font-size:32px;
+      h2 {
+        font-size: 42px;
       }
 
-      .tagline{
-        font-size:20px;
+      .tagline {
+        font-size: 31px;
+      }
+
+      .hero-text,
+      .section-text,
+      .jobs-intro,
+      .faq-item p {
+        font-size: 27px;
+      }
+
+      .faq-item h3,
+      .job-card h3 {
+        font-size: 38px;
       }
     }
   </style>
@@ -131,37 +356,210 @@
 
 <body>
 
-  <header>
-    <div class="brand">THE CELIN COMPANY</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#jobs">Jobs</a>
-      <a href="#faqs">FAQs</a>
-    </nav>
+  <header id="home">
+    <button class="menu-btn" onclick="openMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="brand">THE CELIN<br>COMPANY</div>
+    <div class="line"></div>
+
+    <div class="socials">
+      <a href="#" target="_blank">in</a>
+      <a href="#" target="_blank">◎</a>
+      <a href="#" target="_blank">f</a>
+    </div>
   </header>
 
-  <main class="hero">
-    <img src="4927BAFE-AC9D-4FDE-BDD9-15A14A83DD23.png" alt="The Celin Company Logo" class="logo">
+  <div class="menu" id="menu">
+    <button class="close-btn" onclick="closeMenu()">×</button>
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#about" onclick="closeMenu()">About Us</a>
+    <a href="#jobs" onclick="closeMenu()">Jobs</a>
+    <a href="#faqs" onclick="closeMenu()">FAQs</a>
+  </div>
 
-    <h1>THE CELIN COMPANY</h1>
+  <main class="hero">
+    <img src="4927BAFE-AC9D-4FDE-BDD9-15A14A83DD23.png" alt="The Celin Company Logo" class="hero-logo">
+
+    <h1>THE CELIN<br>COMPANY</h1>
 
     <p class="tagline">Making Dreams A Reality</p>
 
-    <p class="coming">We are An independent film production company dedicated to cinematic storytelling, emotional truth, and original film and television projects.</p>
+    <p class="hero-text">
+      We are an independent film production company dedicated to cinematic storytelling,
+      emotional truth, and original film and television projects.
+    </p>
 
     <a href="#about" class="button">Learn More</a>
-
-    <div class="socials">
-      <a href="#">LinkedIn</a>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-    </div>
   </main>
 
+  <section id="about" class="dark">
+    <h2>WHO WE ARE</h2>
+
+    <p class="section-text">
+      The Celin Company is an independent film production company focused on cinematic storytelling,
+      innovative visual design, and the development of original film and television projects.
+    </p>
+
+    <p class="section-text">
+      We are based in Los Angeles, California, and we are developing original stories for film,
+      television, and visual media.
+    </p>
+
+    <a href="#faqs" class="button">FAQs</a>
+  </section>
+
+  <section id="jobs" class="dark">
+    <h2>JOBS</h2>
+
+    <div class="jobs-intro">
+      <p>
+        Let's create something great.
+      </p>
+
+      <p>
+        The Celin Company is currently recruiting creatives for upcoming film and television projects.
+        Applicants should be professional, collaborative, and passionate about cinematic storytelling.
+      </p>
+    </div>
+
+    <div class="job-list">
+      <a href="#assistant-director">
+        <div class="job-card">
+          <h3>First Assistant Director</h3>
+          <p>Location: Abidjan, Côte d'Ivoire</p>
+          <p>Type: Contract</p>
+        </div>
+      </a>
+
+      <a href="#production-assistant">
+        <div class="job-card">
+          <h3>Production Assistant</h3>
+          <p>Location: Abidjan, Côte d'Ivoire</p>
+          <p>Type: Contract</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="assistant-director" class="dark">
+    <h2>FIRST ASSISTANT DIRECTOR</h2>
+
+    <p class="section-text">
+      The First Assistant Director will support production planning, scheduling, communication,
+      and on-set coordination for upcoming projects.
+    </p>
+
+    <a href="#apply" class="button">APPLY NOW</a>
+  </section>
+
+  <section id="production-assistant" class="dark">
+    <h2>PRODUCTION ASSISTANT</h2>
+
+    <p class="section-text">
+      The Production Assistant will support the production team with daily logistics, organization,
+      communication, and general on-set responsibilities.
+    </p>
+
+    <a href="#apply" class="button">APPLY NOW</a>
+  </section>
+
+  <section id="faqs" class="light">
+    <h2>FREQUENTLY ASKED<br>QUESTIONS</h2>
+
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <h3>WHAT IS THE CELIN COMPANY?</h3>
+        <p>
+          The Celin Company is an independent film production company focused on cinematic storytelling,
+          innovative visual design, and the development of original film and television projects.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>WHERE IS THE CELIN COMPANY BASED?</h3>
+        <p>
+          The Celin Company is based in Los Angeles, California.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>WHAT KIND OF PROJECTS DOES THE COMPANY DEVELOP?</h3>
+        <p>
+          The company develops original narrative films, television projects, and visual media rooted in
+          cinematic storytelling.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>WHAT IF I HAVE MORE QUESTIONS?</h3>
+        <p>
+          If we haven't answered your questions on our website please feel free to reach out to us at
+          info@thecelincompany.com
+        </p>
+      </div>
+
+      <p style="text-align:center;">
+        <a href="#jobs" class="button" style="color:#000;border-color:#000;">See Open Positions</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="apply" class="apply">
+    <h2>APPLY NOW</h2>
+
+    <p class="section-text">
+      Join the team. Please submit your application below.
+    </p>
+
+    <form action="mailto:info@thecelincompany.com" method="post" enctype="text/plain">
+      <label>First Name *</label>
+      <input type="text" name="First Name" placeholder="Enter your first name" required>
+
+      <label>Last Name *</label>
+      <input type="text" name="Last Name" placeholder="Enter your last name" required>
+
+      <label>Email *</label>
+      <input type="email" name="Email" placeholder="Enter your email" required>
+
+      <label>Phone</label>
+      <input type="tel" name="Phone" placeholder="Enter your phone">
+
+      <label>Position *</label>
+      <input type="text" name="Position" placeholder="Enter the position you are applying for" required>
+
+      <label>Resume Link *</label>
+      <input type="url" name="Resume Link" placeholder="Paste resume link" required>
+
+      <label>Cover Letter *</label>
+      <textarea name="Cover Letter" placeholder="Paste your cover letter here" required></textarea>
+
+      <button type="submit" class="submit">SUBMIT APPLICATION</button>
+    </form>
+  </section>
+
   <footer>
-    ©2026 by The Celin Company.
+    <div class="socials">
+      <a href="#" target="_blank">in</a>
+      <a href="#" target="_blank">◎</a>
+      <a href="#" target="_blank">f</a>
+    </div>
+
+    <p>©2026 by The Celin Company.</p>
   </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("menu").classList.add("active");
+    }
+
+    function closeMenu() {
+      document.getElementById("menu").classList.remove("active");
+    }
+  </script>
 
 </body>
 </html>
